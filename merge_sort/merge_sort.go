@@ -1,18 +1,18 @@
 package main
 
 import "fmt"
-var tmp [100]int
+var tmp [100000]int
 
 func mergeSort(queue []int, left, right int) {
 	if left >= right {
 		return
 	}
-	mid := (left + right) >>1
+	mid := (left + right) >> 1
 	mergeSort(queue, left, mid)
 	mergeSort(queue, mid+1, right)
 
 	i, j, k := left, mid+1, 0
-	for ;i <= mid && j <= right; {
+	for i <= mid && j <= right {
 		if queue[i] <= queue[j] {
 			tmp[k] = queue[i]
 			k++
@@ -24,12 +24,12 @@ func mergeSort(queue []int, left, right int) {
 		}
 	}
 
-	for ;i <= mid; {
+	for i <= mid {
 		tmp[k] = queue[i]
 		k++
 		i++
 	}
-	for ;j <= right; {
+	for j <= right {
 		tmp[k] = queue[j]
 		k++
 		j++
