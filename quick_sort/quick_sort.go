@@ -1,8 +1,6 @@
 package main
 
 import "fmt"
-
-
 func quickSort(queue []int, left, right int) {
 	if left >= right {
 		return
@@ -28,3 +26,6 @@ func main() {
 	quickSort(q, 0, len(q)-1)
 	fmt.Println(q)
 }
+
+
+

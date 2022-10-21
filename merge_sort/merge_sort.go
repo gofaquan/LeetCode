@@ -3,45 +3,40 @@ package main
 import "fmt"
 var tmp [100000]int
 
-func mergeSort(queue []int, left, right int) {
+func mergeSort(nums []int, left, right int) {
 	if left >= right {
 		return
 	}
 	mid := (left + right) >> 1
-	mergeSort(queue, left, mid)
-	mergeSort(queue, mid+1, right)
+	mergeSort(nums, left, mid)
+	mergeSort(nums, mid+1, right)
 
 	i, j, k := left, mid+1, 0
+
 	for i <= mid && j <= right {
-		if queue[i] <= queue[j] {
-			tmp[k] = queue[i]
-			k++
-			i++
+		if nums[i] <= nums[j] {
+			tmp[k] = nums[i]
+			k, i = k+1, i+1
 		} else {
-			tmp[k] = queue[j]
-			k++
-			j++
+			tmp[k] = nums[j]
+			k, j = k+1, j+1
 		}
 	}
 
 	for i <= mid {
-		tmp[k] = queue[i]
-		k++
-		i++
-	}
-	for j <= right {
-		tmp[k] = queue[j]
-		k++
-		j++
+		tmp[k] = nums[i]
+		k, i = k+1, i+1
 	}
 
-	for i, j = left, 0; i <= right; {
-		queue[i] = tmp[j]
-		i++
-		j++
+	for j <= right {
+		tmp[k] = nums[j]
+		k, j = k+1, j+1
+	}
+
+	for i, j = left, 0; i <= right; i, j = i+1, j+1 {
+		nums[i] = tmp[j]
 	}
 }
-
 func main() {
 	var q = []int{3, 2, 1, 4, 5}
 	mergeSort(q, 0, len(q)-1)
