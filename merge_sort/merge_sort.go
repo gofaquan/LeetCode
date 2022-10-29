@@ -1,6 +1,7 @@
 package main
 
 import "fmt"
+
 var tmp [100000]int
 
 func mergeSort(nums []int, left, right int) {
