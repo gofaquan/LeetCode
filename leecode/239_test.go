@@ -2,7 +2,7 @@ package leecode
 
 func maxSlidingWindow(nums []int, k int) []int {
 	var result []int
-	var queue [100010]int
+	var queue = make([]int, len(nums))
 	head, tail := 0, -1
 
 	for i := 0; i < len(nums); i++ {
@@ -23,3 +23,7 @@ func maxSlidingWindow(nums []int, k int) []int {
 
 	return result
 }
+
+/*
+if hh <= tt
+*/
