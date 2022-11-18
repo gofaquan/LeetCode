@@ -40,14 +40,6 @@ func merge(intervals [][]int) [][]int {
 	return res
 }
 
-func max(x, y int) int {
-	if x > y {
-		return x
-	}
-
-	return y
-}
-
 var tmp [100000]int
 
 func quickSort(queue [][]int, left, right int) {
