@@ -4,16 +4,15 @@ import "math"
 
 func networkDelayTime(times [][]int, n int, k int) (ans int) {
 	const inf = math.MaxInt64 / 2
-	dis := make([]int, n)
-	for i := 0; i < len(dis); i++ {
-		dis[i] = inf
+	d := make([]int, n)
+	for i := 0; i < len(d); i++ {
+		d[i] = inf
 	}
-	dis[k-1] = 0
+	d[k-1] = 0
 	g := make([][]int, n)
-
-	for i := 0; i < len(g); i++ {
+	for i := 0; i < n; i++ {
 		g[i] = make([]int, n)
-		for j := 0; j < len(g[i]); j++ {
+		for j := 0; j < n; j++ {
 			g[i][j] = inf
 		}
 	}
@@ -26,24 +25,26 @@ func networkDelayTime(times [][]int, n int, k int) (ans int) {
 	for i := 0; i < n; i++ {
 		t := -1
 		for j := 0; j < n; j++ {
-			if !used[j] && (t == -1 || dis[j] < dis[t]) {
+			if !used[j] && (t == -1 || d[t] > d[j]) {
 				t = j
 			}
 		}
 
 		used[t] = true
 
-		for i := 0; i < len(g[t]); i++ {
-			dis[i] = min(dis[i], dis[t]+g[t][i])
+		for a := 0; a < n; a++ {
+			d[a] = min(d[a], d[t]+g[t][a])
 		}
 	}
 
-	for _, di := range dis {
-		if di == inf {
+	for _, v := range d {
+		if v == inf {
 			return -1
 		}
-		ans = max(ans, di)
+
+		ans = max(ans, v)
 	}
+
 	return
 }
 
