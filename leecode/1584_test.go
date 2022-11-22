@@ -10,7 +10,8 @@ type edge struct {
 	a, b, c int
 }
 
-func minCostConnectPoints(points [][]int) (res int) {
+// failed
+func minCostConnectPointsf(points [][]int) (res int) {
 	const inf = math.MaxInt64 / 2
 	edges := make([]edge, len(points))
 	for i := 0; i < len(points); i++ {
@@ -35,7 +36,7 @@ func minCostConnectPoints(points [][]int) (res int) {
 	fmt.Println(edges)
 
 	p := make([]int, len(points))
-	for i := 1; i <= len(p); i++ {
+	for i := 0; i < len(p); i++ {
 		p[i] = i
 	}
 
@@ -48,13 +49,13 @@ func minCostConnectPoints(points [][]int) (res int) {
 		return p[x]
 	}
 
-	for i := 0; i < len(points); i++ {
-		a, b, c := edges[i].a, edges[i].b, edges[i].c
+	for _, edge := range edges {
+		a, b, c := edge.a, edge.b, edge.c
 		a = f(a)
 		b = f(b)
 		if a != b {
-			p[a] = b
 			res += c
+			p[a] = b
 		}
 	}
 

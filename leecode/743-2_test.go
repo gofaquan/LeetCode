@@ -2,7 +2,7 @@ package leecode
 
 import "math"
 
-func networkDelayTime(times [][]int, n, k int) (ans int) {
+func networkDelayTime1(times [][]int, n, k int) (ans int) {
 	const inf = math.MaxInt64 / 2
 	g := make([][]int, n)
 	for i := 0; i < n; i++ {
@@ -44,7 +44,7 @@ type Edge struct {
 	a, b, c int
 }
 
-func networkDelayTime(times [][]int, n, k int) (ans int) {
+func networkDelayTime2(times [][]int, n, k int) (ans int) {
 	var set []Edge
 	const inf = math.MaxInt64 / 2
 
@@ -82,14 +82,14 @@ func networkDelayTime(times [][]int, n, k int) (ans int) {
 	return
 }
 
-func min(a, b int) int {
+func min1(a, b int) int {
 	if a < b {
 		return a
 	}
 	return b
 }
 
-func max(a, b int) int {
+func max1(a, b int) int {
 	if a > b {
 		return a
 	}
