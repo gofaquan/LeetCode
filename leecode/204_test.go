@@ -61,7 +61,7 @@ func TestC2(t *testing.T) {
 }
 
 // 线性筛法
-func countPrimes(n int) (cnt int) {
+func countPrimes3(n int) (cnt int) {
 	st := make([]bool, n+1)
 	primes := make([]int, n+1)
 
@@ -85,4 +85,28 @@ func countPrimes(n int) (cnt int) {
 
 func TestC12(t *testing.T) {
 	println(countPrimes(10))
+}
+
+func countPrimes(n int) (cnt int) {
+	if n <= 2 {
+		return 0
+	} else if n == 3 {
+		return 1
+	}
+
+	cnt = n
+	for i := 2; i < n/i; i++ {
+		if n%i == 0 {
+			cnt = cnt / i * (i - 1)
+			for n%i == 0 {
+				n /= i
+			}
+		}
+	}
+
+	if n > 1 {
+		cnt = cnt / n * (n - 1)
+	}
+
+	return
 }
