@@ -8,7 +8,7 @@ import (
 var testArray = [][]int{{1, 3}, {2, 6}, {8, 10}, {15, 18}}
 
 func TestQuickSort(t *testing.T) {
-	quickSort(testArray, 0, len(testArray)-1)
+	_56quickSort(testArray, 0, len(testArray)-1)
 	fmt.Println(testArray)
 }
 
@@ -18,7 +18,7 @@ func TestMerge(t *testing.T) {
 
 func merge(intervals [][]int) [][]int {
 	var res [][]int
-	quickSort(intervals, 0, len(intervals)-1)
+	_56quickSort(intervals, 0, len(intervals)-1)
 	// 0 <= starti <= endi <= 10^4
 	st, end := -1, -1
 
@@ -42,7 +42,7 @@ func merge(intervals [][]int) [][]int {
 
 var tmp [100000]int
 
-func quickSort(queue [][]int, left, right int) {
+func _56quickSort(queue [][]int, left, right int) {
 	if left >= right {
 		return
 	}
@@ -60,6 +60,6 @@ func quickSort(queue [][]int, left, right int) {
 		}
 	}
 
-	quickSort(queue, left, rightBoard)
-	quickSort(queue, rightBoard+1, right)
+	_56quickSort(queue, left, rightBoard)
+	_56quickSort(queue, rightBoard+1, right)
 }
