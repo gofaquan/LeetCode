@@ -27,7 +27,7 @@ func fibonacci(n, now int, data []int) {
 	fibonacci(n, now+1, data)
 }
 
-func main() {
+func _717main() {
 	fmt.Scanf("%d", &_717n)
 	_717data = make([]int, _717n)
 
