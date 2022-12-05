@@ -5,12 +5,12 @@ import (
 	"testing"
 )
 
-var state int
-var n int
+var _92state int
+var _92n int
 
-func dfs(u int, state int) {
-	if u == n {
-		for i := 0; i < n; i++ {
+func _92dfs(u int, state int) {
+	if u == _92n {
+		for i := 0; i < _92n; i++ {
 			if (state >> i & 1) == 1 {
 				fmt.Print(i+1, " ")
 			}
@@ -19,16 +19,16 @@ func dfs(u int, state int) {
 		return
 	}
 
-	dfs(u+1, state)
-	dfs(u+1, state|1<<u)
+	_92dfs(u+1, state)
+	_92dfs(u+1, state|1<<u)
 }
 
-func main() {
-	fmt.Scanf("%d", &n)
-	dfs(0, 0)
+func _92main() {
+	fmt.Scanf("%d", &_92n)
+	_92dfs(0, 0)
 }
 
 func TestBfs(t *testing.T) {
-	n = 3
-	dfs(0, 0)
+	_92n = 3
+	_92dfs(0, 0)
 }
