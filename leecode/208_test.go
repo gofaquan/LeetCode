@@ -5,7 +5,7 @@ type Trie struct {
 	ended bool
 }
 
-func Constructor() Trie {
+func _208Constructor() Trie {
 	return Trie{}
 }
 
