@@ -13,10 +13,35 @@ func TestQuickSort(t *testing.T) {
 }
 
 func TestMerge(t *testing.T) {
-	fmt.Println(merge(testArray))
+	//fmt.Println(merge(testArray))
+	fmt.Println(_56merge2([][]int{{1, 4}, {0, 4}}))
 }
 
-func merge(intervals [][]int) [][]int {
+func _56merge2(intervals [][]int) (res [][]int) {
+	if len(intervals) == 1 {
+		return intervals
+	}
+
+	_56quickSort(intervals, 0, len(intervals)-1)
+
+	left := intervals[0][0]
+	right := intervals[0][1]
+	for i := 1; i < len(intervals); i++ {
+		if intervals[i][0] <= right {
+			if intervals[i][1] > right {
+				right = intervals[i][1]
+			}
+		} else {
+			res = append(res, []int{left, right})
+			right = intervals[i][1]
+			left = intervals[i][0]
+		}
+	}
+	res = append(res, []int{left, right})
+	return
+}
+
+func _56merge1(intervals [][]int) [][]int {
 	var res [][]int
 	_56quickSort(intervals, 0, len(intervals)-1)
 	// 0 <= starti <= endi <= 10^4
@@ -40,26 +65,24 @@ func merge(intervals [][]int) [][]int {
 	return res
 }
 
-var tmp [100000]int
-
-func _56quickSort(queue [][]int, left, right int) {
+func _56quickSort(intervals [][]int, left, right int) {
 	if left >= right {
 		return
 	}
 
-	leftBoard, rightBoard, Val := left-1, right+1, queue[left][0]
+	i, j, x := left-1, right+1, intervals[left][0]
 
-	for leftBoard < rightBoard {
-		for leftBoard++; queue[leftBoard][0] < Val; leftBoard++ {
+	for i < j {
+		for i++; intervals[i][0] < x; i++ {
 		}
-		for rightBoard--; queue[rightBoard][0] > Val; rightBoard-- {
+		for j--; intervals[j][0] > x; j-- {
 		}
 
-		if leftBoard < rightBoard {
-			queue[leftBoard], queue[rightBoard] = queue[rightBoard], queue[leftBoard]
+		if i < j {
+			intervals[i], intervals[j] = intervals[j], intervals[i]
 		}
 	}
 
-	_56quickSort(queue, left, rightBoard)
-	_56quickSort(queue, rightBoard+1, right)
+	_56quickSort(intervals, left, j)
+	_56quickSort(intervals, j+1, right)
 }
