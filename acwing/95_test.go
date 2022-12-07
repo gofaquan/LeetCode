@@ -31,7 +31,7 @@ func Test95(tx *testing.T) {
 		for i := 0; i < 5; {
 			var s string
 			fmt.Scanln(&s)
-			//fmt.Println(s)
+			//fmt.Println(_802s)
 			for j := 0; j < len(s); j++ {
 				_95g[i][j] = s[j] - '0'
 			}

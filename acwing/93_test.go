@@ -29,7 +29,7 @@ func _93dfs(u, start int) {
 	}
 }
 
-func main() {
+func _main() {
 	fmt.Scan(&_93n)
 	fmt.Scan(&_93m)
 	_93dfs(0, 0)

@@ -23,13 +23,13 @@ func networkDelayTime1(times [][]int, n, k int) (ans int) {
 	for p := 0; p < n; p++ {
 		for i := 0; i < n; i++ {
 			for j := 0; j < n; j++ {
-				g[i][j] = min(g[i][j], g[i][p]+g[p][j])
+				g[i][j] = _57min(g[i][j], g[i][p]+g[p][j])
 			}
 		}
 	}
 
 	for i := 0; i < n; i++ {
-		ans = max(g[k-1][i], ans)
+		ans = _57max(g[k-1][i], ans)
 	}
 
 	if ans >= inf {
@@ -67,7 +67,7 @@ func networkDelayTime2(times [][]int, n, k int) (ans int) {
 		copy(cp, dis)
 		for _, edge := range set {
 			a, b, c := edge.a, edge.b, edge.c
-			dis[b] = min(dis[b], cp[a]+c)
+			dis[b] = _57min(dis[b], cp[a]+c)
 		}
 
 	}
@@ -77,7 +77,7 @@ func networkDelayTime2(times [][]int, n, k int) (ans int) {
 			return -1
 		}
 
-		ans = max(ans, v)
+		ans = _57max(ans, v)
 	}
 	return
 }

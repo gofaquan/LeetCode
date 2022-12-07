@@ -54,7 +54,7 @@ func _56merge1(intervals [][]int) [][]int {
 			}
 			st, end = interval[0], interval[1]
 		} else {
-			end = max(interval[1], end)
+			end = _57max(interval[1], end)
 		}
 	}
 

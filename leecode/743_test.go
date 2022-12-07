@@ -33,7 +33,7 @@ func networkDelayTime(times [][]int, n int, k int) (ans int) {
 		used[t] = true
 
 		for a := 0; a < n; a++ {
-			d[a] = min(d[a], d[t]+g[t][a])
+			d[a] = _57min(d[a], d[t]+g[t][a])
 		}
 	}
 
@@ -42,7 +42,7 @@ func networkDelayTime(times [][]int, n int, k int) (ans int) {
 			return -1
 		}
 
-		ans = max(ans, v)
+		ans = _57max(ans, v)
 	}
 
 	return

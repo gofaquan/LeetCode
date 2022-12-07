@@ -7,24 +7,24 @@ import (
 
 const N = 300010
 
-var a [N]int
-var s [N]int
-var n, m int
-var alls []int
-var add []pair
-var query []pair
+var _802a [N]int
+var _802s [N]int
+var _802n, _802m int
+var _802alls []int
+var _802add []_802pair
+var _802query []_802pair
 
-type pair struct {
+type _802pair struct {
 	x int
 	c int
 }
 
-func find(x int) int {
+func _802find(x int) int {
 	l := 0
-	r := len(alls) - 1
+	r := len(_802alls) - 1
 	for l < r {
 		mid := (l + r) >> 1
-		if alls[mid] >= x {
+		if _802alls[mid] >= x {
 			r = mid
 		} else {
 			l = mid + 1
@@ -33,38 +33,38 @@ func find(x int) int {
 	return r + 1
 }
 
-func main() {
-	fmt.Scanf("%d%d", &n, &m)
-	for i := 0; i < n; i++ {
+func _802main() {
+	fmt.Scanf("%d%d", &_802n, &_802m)
+	for i := 0; i < _802n; i++ {
 		var x, c int
 		fmt.Scanf("%d%d", &x, &c)
-		add = append(add, pair{x, c})
-		alls = append(alls, x)
+		_802add = append(_802add, _802pair{x, c})
+		_802alls = append(_802alls, x)
 	}
-	for i := 0; i < m; i++ {
+	for i := 0; i < _802m; i++ {
 		var l, r int
 		fmt.Scanf("%d%d", &l, &r)
-		query = append(query, pair{l, r})
-		alls = append(alls, l)
-		alls = append(alls, r)
+		_802query = append(_802query, _802pair{l, r})
+		_802alls = append(_802alls, l)
+		_802alls = append(_802alls, r)
 	}
-	sort.Ints(alls)
-	alls = unique(alls)
-	for i := 0; i < len(add); i++ {
-		x := find(add[i].x)
-		a[x] += add[i].c
+	sort.Ints(_802alls)
+	_802alls = _802unique(_802alls)
+	for i := 0; i < len(_802add); i++ {
+		x := _802find(_802add[i].x)
+		_802a[x] += _802add[i].c
 	}
-	for i := 1; i <= len(alls); i++ {
-		s[i] = s[i-1] + a[i]
+	for i := 1; i <= len(_802alls); i++ {
+		_802s[i] = _802s[i-1] + _802a[i]
 	}
-	for i := 0; i < len(query); i++ {
-		l := find(query[i].x)
-		r := find(query[i].c)
-		fmt.Println(s[r] - s[l-1])
+	for i := 0; i < len(_802query); i++ {
+		l := _802find(_802query[i].x)
+		r := _802find(_802query[i].c)
+		fmt.Println(_802s[r] - _802s[l-1])
 	}
 }
 
-func unique(intSlice []int) []int {
+func _802unique(intSlice []int) []int {
 	keys := make(map[int]bool)
 	list := []int{}
 	for _, entry := range intSlice {
