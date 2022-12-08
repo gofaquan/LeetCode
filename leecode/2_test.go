@@ -10,36 +10,6 @@ type ListNode struct {
 	Next *ListNode
 }
 
-// 正确答案
-func addTwoNumbers2(l1, l2 *ListNode) (head *ListNode) {
-	var tail *ListNode
-	carry := 0
-	for l1 != nil || l2 != nil {
-		n1, n2 := 0, 0
-		if l1 != nil {
-			n1 = l1.Val
-			l1 = l1.Next
-		}
-		if l2 != nil {
-			n2 = l2.Val
-			l2 = l2.Next
-		}
-		sum := n1 + n2 + carry
-		sum, carry = sum%10, sum/10
-		if head == nil {
-			head = &ListNode{Val: sum}
-			tail = head
-		} else {
-			tail.Next = &ListNode{Val: sum}
-			tail = tail.Next
-		}
-	}
-	if carry > 0 {
-		tail.Next = &ListNode{Val: carry}
-	}
-	return
-}
-
 // 不进位情况下就是错的，多了值为0的 尾节点
 func TestAddTwo(t *testing.T) {
 	l1 := &ListNode{
@@ -65,13 +35,14 @@ func TestAddTwo(t *testing.T) {
 	}
 
 	fmt.Println(addTwoNumbers(l1, l2).Next.Next.Val)
-	fmt.Println(addTwoNumbers(l1, l2).Next.Next.Next.Val)
+	//fmt.Println(addTwoNumbers(l1, l2).Next.Next.Next.Val)
 }
 
-func addTwoNumbers(l1, l2 *ListNode) *ListNode {
+func addTwoNumbers2(l1, l2 *ListNode) *ListNode {
 	tail := &ListNode{}
 	head := tail
 	carry := 0
+	first := true
 
 	for l1 != nil || l2 != nil {
 		n1, n2 := 0, 0
@@ -87,17 +58,50 @@ func addTwoNumbers(l1, l2 *ListNode) *ListNode {
 		sum := n1 + n2 + carry
 		sum, carry = sum%10, sum/10
 
-		tail.Val = sum
-		tail.Next = &ListNode{}
-		tail = tail.Next
+		if first {
+			tail.Val = sum
+			first = false
+		} else {
+			tail.Next = &ListNode{Val: sum}
+			tail = tail.Next
+		}
 
 	}
 
 	if carry > 0 {
-		tail.Val = carry
-	} else {
-		tail = nil
+		tail.Next = &ListNode{Val: carry}
 	}
 
 	return head
+}
+func addTwoNumbers(l1 *ListNode, l2 *ListNode) (head *ListNode) {
+	tail := head
+	t := 0
+	for l1 != nil || l2 != nil {
+		v1, v2 := 0, 0
+		if l1 != nil {
+			v1 = l1.Val
+			l1 = l1.Next
+		}
+		if l2 != nil {
+			v2 = l2.Val
+			l2 = l2.Next
+		}
+		t += v1 + v2
+		if head == nil {
+			head = &ListNode{Val: t % 10}
+			tail = head
+		} else {
+			tail.Next = &ListNode{Val: t % 10}
+			tail = tail.Next
+		}
+
+		t /= 10
+	}
+
+	if t > 0 {
+		tail.Next = &ListNode{Val: t}
+	}
+
+	return
 }

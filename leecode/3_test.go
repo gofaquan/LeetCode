@@ -1,6 +1,6 @@
 package leecode
 
-func _3lengthOfLongestSubstring(s string) int {
+func lengthOfLongestSubstring(s string) int {
 	var a = make([]int, len(s))
 	res := 0
 
@@ -18,7 +18,7 @@ func _3lengthOfLongestSubstring(s string) int {
 	return res
 }
 
-func _3lengthOfLongestSubstring2(s string) (res int) {
+func lengthOfLongestSubstring2(s string) (res int) {
 	m := map[uint8]int{}
 	for i, j := 0, 0; i < len(s); i++ {
 		m[s[i]]++
