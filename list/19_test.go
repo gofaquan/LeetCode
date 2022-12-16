@@ -1,4 +1,26 @@
-package leecode
+package main
+
+// 最佳
+func removeNthFromEnd3(head *ListNode, n int) *ListNode {
+	fast := head
+	slow := head
+	for i := 0; i < n; i++ {
+		fast = fast.Next
+	}
+
+	for fast != nil && fast.Next != nil {
+		slow = slow.Next
+		fast = fast.Next
+	}
+
+	if fast == nil {
+		return head.Next
+	} else {
+		slow.Next = slow.Next.Next
+	}
+
+	return head
+}
 
 func removeNthFromEnd2(head *ListNode, n int) *ListNode {
 	var length = 0

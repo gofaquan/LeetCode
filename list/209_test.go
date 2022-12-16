@@ -1,4 +1,4 @@
-package leecode
+package main
 
 func reverseList(head *ListNode) *ListNode {
 	var pre *ListNode
