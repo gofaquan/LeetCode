@@ -1,4 +1,6 @@
-package main
+package ___offer
+
+// 保存差值栈
 
 type MinStack struct {
 	min   int
