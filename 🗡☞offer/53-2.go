@@ -1,12 +1,6 @@
-package main
+package ___offer
 
 import "fmt"
-
-type Node struct {
-	Val    int
-	Next   *Node
-	Random *Node
-}
 
 func missingNumber(nums []int) (res int) {
 
