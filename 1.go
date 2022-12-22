@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Node struct {
 	Val    int
@@ -8,21 +10,16 @@ type Node struct {
 	Random *Node
 }
 
-func missingNumber(nums []int) (res int) {
-
-	l, r := 0, len(nums)-1
-	for l <= r {
-		mid := (l + r) / 2
-		if nums[mid] == mid {
-			l = mid + 1
-		} else {
-			r = mid - 1
+func firstUniqChar(s string) byte {
+	m := map[uint8]int{}
+	for i, j := 0, 0; j < len(s); {
+		if m[s[j]] == 1 {
+			m[s[i]]--
 		}
 	}
-
-	return l
 }
 
 func main() {
-	fmt.Println(missingNumber([]int{1}))
+	var a [][]int
+	fmt.Println(len(a[0]))
 }
