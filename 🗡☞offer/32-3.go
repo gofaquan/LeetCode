@@ -1,19 +1,4 @@
-package main
-
-import (
-	"fmt"
-)
-
-type Node struct {
-	Val    int
-	Next   *Node
-	Random *Node
-}
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+package ___offer
 
 func levelOrder(root *TreeNode) (res [][]int) {
 	if root == nil {
@@ -49,9 +34,4 @@ func levelOrder(root *TreeNode) (res [][]int) {
 	}
 
 	return res
-}
-
-func main() {
-	var a [][]int
-	fmt.Println(len(a[0]))
 }

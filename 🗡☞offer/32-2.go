@@ -1,19 +1,4 @@
-package main
-
-import (
-	"fmt"
-)
-
-type Node struct {
-	Val    int
-	Next   *Node
-	Random *Node
-}
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+package ___offer
 
 func levelOrder(root *TreeNode) (res [][]int) {
 	if root == nil {
@@ -21,7 +6,6 @@ func levelOrder(root *TreeNode) (res [][]int) {
 	}
 
 	queue := []*TreeNode{root}
-	isReverse := false
 
 	for len(queue) > 0 {
 		n := len(queue)
@@ -37,21 +21,8 @@ func levelOrder(root *TreeNode) (res [][]int) {
 				queue = append(queue, node.Right)
 			}
 		}
-
-		if isReverse {
-			for i := 0; i < len(level)/2; i++ {
-				level[i], level[len(level)-i-1] = level[len(level)-i-1], level[i]
-			}
-		}
-
-		isReverse = !isReverse
 		res = append(res, level)
 	}
 
 	return res
-}
-
-func main() {
-	var a [][]int
-	fmt.Println(len(a[0]))
 }
