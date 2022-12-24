@@ -1,15 +1,4 @@
-package main
-
-type Node struct {
-	Val    int
-	Next   *Node
-	Random *Node
-}
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+package ___offer
 
 func isSymmetric(root *TreeNode) bool {
 
@@ -32,7 +21,4 @@ func isSymmetric(root *TreeNode) bool {
 
 	return equal(root.Left, root.Right)
 
-}
-
-func main() {
 }
