@@ -1,16 +1,6 @@
-package main
+package ___offer
 
 import "math"
-
-type Node struct {
-	Val      int
-	Children []*Node
-}
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
 
 func maxProfit(prices []int) int {
 	max, min := 0, math.MaxInt
