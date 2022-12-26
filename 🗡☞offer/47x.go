@@ -1,22 +1,5 @@
-package main
+package ___offer
 
-type Node struct {
-	Val      int
-	Children []*Node
-}
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
-func maxSubArray(nums []int) int {
-	m := make([]int, len(nums)+1)
-	for i := 0; i < len(nums)-1; i++ {
-		m[i+1] = max(m[i]+nums[i+1], nums[i+1])
-	}
-	return m[len(nums)]
-}
 func maxValue(grid [][]int) int {
 	row := len(grid)
 	column := len(grid[0])
