@@ -9,3 +9,10 @@ type TreeNode struct {
 	Left  *TreeNode
 	Right *TreeNode
 }
+
+func max(x, y int) int {
+	if x > y {
+		return x
+	}
+	return y
+}
