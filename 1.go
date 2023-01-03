@@ -1,9 +1,5 @@
 package main
 
-import (
-	"sort"
-)
-
 type Node struct {
 	Val   int
 	Left  *Node
@@ -25,10 +21,4 @@ func max(x, y int) int {
 		return x
 	}
 	return y
-}
-
-func isStraight(nums []int) bool {
-
-func main() {
-
 }
