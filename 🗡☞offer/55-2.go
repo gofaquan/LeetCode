@@ -1,20 +1,4 @@
-package main
-
-type Node struct {
-	Val   int
-	Left  *Node
-	Right *Node
-}
-type ListNode struct {
-	Val   int
-	Left  *ListNode
-	Right *ListNode
-}
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+package ___offer
 
 func max(x, y int) int {
 	if x > y {
