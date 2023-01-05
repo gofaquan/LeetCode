@@ -1,27 +1,4 @@
-package main
-
-type Node struct {
-	Val   int
-	Left  *Node
-	Right *Node
-}
-type ListNode struct {
-	Val   int
-	Left  *ListNode
-	Right *ListNode
-}
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
-func max(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
-}
+package ___offer
 
 func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	if root == nil {
