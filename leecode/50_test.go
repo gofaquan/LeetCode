@@ -31,5 +31,5 @@ func qM(x float64, n int) float64 {
 }
 
 func TestPow(t *testing.T) {
-	fmt.Println(myPow(2, 10))
+	fmt.Println(myPow(2, 7))
 }

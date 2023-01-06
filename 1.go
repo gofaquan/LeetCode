@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type Node struct {
 	Val   int
 	Left  *Node
@@ -23,24 +25,8 @@ func max(x, y int) int {
 	return y
 }
 
-func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
-	if root == nil {
-		return nil
-	}
+func main() {
+	postorder := []int{9, 15, 7, 20, 3}
+	fmt.Println(verifyPostorder(postorder)) // 输出 true
 
-	if root == p || root == q {
-		return root
-	}
-
-	l := lowestCommonAncestor(root.Left, p, q)
-	r := lowestCommonAncestor(root.Right, p, q)
-
-	if l != nil && r != nil {
-		return root
-	}
-
-	if l != nil {
-		return l
-	}
-	return r
 }
