@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 type Node struct {
 	Val   int
 	Left  *Node
@@ -26,7 +24,5 @@ func max(x, y int) int {
 }
 
 func main() {
-	postorder := []int{9, 15, 7, 20, 3}
-	fmt.Println(verifyPostorder(postorder)) // 输出 true
 
 }
