@@ -23,6 +23,13 @@ func max(x, y int) int {
 	return y
 }
 
+func lastRemaining(n int, m int) int {
+	i := 0
+	for n != 1 {
+
+	}
+}
+
 func main() {
 
 }
